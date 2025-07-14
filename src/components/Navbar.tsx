@@ -1,4 +1,12 @@
 import React, { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Menu, X } from 'lucide-react';
+
+const navLinks = [
+  { title: 'Services', href: '#features' },
+  { title: 'About', href: '#about' },
+  { title: 'Contact', href: '#contact' },
+];
 
 export const Navbar: React.FC = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -12,74 +20,79 @@ export const Navbar: React.FC = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const closeMenu = () => setMenuOpen(false);
+  const toggleMenu = () => setMenuOpen(!menuOpen);
 
   return (
-    <header
-      className={`transition-all duration-300 sticky top-0 z-50 bg-[#08448E] shadow-md 
-        ${scrolled ? 'py-1' : 'py-2'} px-4 md:px-6 flex justify-between items-center`}
-    >
-      {/* Logo */}
-        <div className="flex items-center gap-3">
-        <a href="https://unison-w.netlify.app/">
+    <>
+      <header
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+          scrolled ? 'py-2 bg-slate-900/50 backdrop-blur-lg shadow-xl' : 'py-4 bg-transparent'
+        }`}
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
+          {/* Logo */}
+          <a href="https://unison-w.netlify.app/" className="flex-shrink-0">
             <img
-            src="/unison.png"
-            alt="Unison Logo"
-            className={`transition-all duration-300 transform hover:scale-110 rounded-full 
-                ${scrolled ? 'h-12 w-12' : 'h-16 w-16'}`}
+              src="/unison.png"
+              alt="Unison Logo"
+              className={`transition-all duration-300 rounded-full transform hover:scale-110 ${
+                scrolled ? 'h-12 w-12' : 'h-16 w-16'
+              }`}
             />
-        </a>
+          </a>
+
+          {/* Desktop Navigation */}
+          <nav className="hidden md:flex items-center space-x-2">
+            {navLinks.map((link) => (
+              <a
+                key={link.title}
+                href={link.href}
+                className="px-4 py-2 text-sm font-medium text-white rounded-full hover:bg-white/10 transition-colors"
+              >
+                {link.title}
+              </a>
+            ))}
+          </nav>
+
+          {/* Mobile menu button */}
+          <div className="md:hidden">
+            <button onClick={toggleMenu} className="text-white focus:outline-none">
+              <Menu className="w-6 h-6" />
+            </button>
+          </div>
         </div>
+      </header>
 
-
-      {/* Mobile menu button */}
-      <button
-        onClick={() => setMenuOpen(!menuOpen)}
-        className="md:hidden text-white focus:outline-none"
-      >
-        <svg
-          className="w-6 h-6"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2"
-          viewBox="0 0 24 24"
-        >
-          {menuOpen ? (
-            <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-          ) : (
-            <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
-          )}
-        </svg>
-      </button>
-
-      {/* Navigation Links */}
-      <nav
-        className={`space-y-4 md:space-y-0 md:space-x-6 text-sm font-medium absolute md:static 
-        top-full left-0 w-full md:w-auto bg-[#08448E] md:bg-transparent px-6 md:px-0 py-4 md:py-0 
-        transition-all duration-300 text-white ${menuOpen ? 'block' : 'hidden'} md:flex`}
-      >
-        <a
-          href="#features"
-          onClick={closeMenu}
-          className="hover:underline hover:text-yellow-300 block md:inline"
-        >
-          Services
-        </a>
-        <a
-          href="#about"
-          onClick={closeMenu}
-          className="hover:underline hover:text-yellow-300 block md:inline"
-        >
-          About
-        </a>
-        <a
-          href="#contact"
-          onClick={closeMenu}
-          className="hover:underline hover:text-yellow-300 block md:inline"
-        >
-          Contact
-        </a>
-      </nav>
-    </header>
+      {/* Mobile Menu Overlay */}
+      <AnimatePresence>
+        {menuOpen && (
+          <motion.div
+            initial={{ opacity: 0, x: '100%' }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: '100%' }}
+            transition={{ duration: 0.3, ease: 'easeInOut' }}
+            className="fixed inset-0 z-50 bg-slate-900/90 backdrop-blur-lg md:hidden"
+          >
+            <div className="flex justify-end p-5">
+              <button onClick={toggleMenu} className="text-white focus:outline-none">
+                <X className="w-7 h-7" />
+              </button>
+            </div>
+            <nav className="flex flex-col items-center justify-center h-full space-y-8">
+              {navLinks.map((link) => (
+                <a
+                  key={link.title}
+                  href={link.href}
+                  onClick={toggleMenu}
+                  className="text-3xl font-semibold text-white hover:text-yellow-300 transition-colors"
+                >
+                  {link.title}
+                </a>
+              ))}
+            </nav>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </>
   );
 };
