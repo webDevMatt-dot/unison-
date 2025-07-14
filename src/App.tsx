@@ -39,7 +39,7 @@ useEffect(() => {
       {/* Header */}
       <header className="p-6 flex justify-between items-center bg-[#08448E] shadow-md sticky top-0 z-50">
         <div className="flex items-center gap-3">
-          <a href ="/home"><img src="/unison.png" alt="Unison Logo" className="h-10 w-10 rounded-full" /> </a>
+          <a href ="https://unison-w.netlify.app/"><img src="/unison.png" alt="Unison Logo" className="h-10 w-10 rounded-full" /> </a>
         </div>
         <nav className="space-x-6 text-sm font-medium">
           <a href="#features" className="hover:underline hover:text-yellow-300">Services</a>
