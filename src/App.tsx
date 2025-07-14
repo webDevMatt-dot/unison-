@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { BrainCircuit, ShieldCheck, BriefcaseBusiness, BarChart } from 'lucide-react';
+import { Navbar } from './components/Navbar';
 
 function App() {
 useEffect(() => {
@@ -37,16 +38,7 @@ useEffect(() => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-[#08448E] via-blue-700 to-blue-500 text-white flex flex-col font-sans">
       {/* Header */}
-      <header className="p-6 flex justify-between items-center bg-[#08448E] shadow-md sticky top-0 z-50">
-        <div className="flex items-center gap-3">
-          <a href ="https://unison-w.netlify.app/"><img src="/unison.png" alt="Unison Logo" className="h-10 w-10 rounded-full" /> </a>
-        </div>
-        <nav className="space-x-6 text-sm font-medium">
-          <a href="#features" className="hover:underline hover:text-yellow-300">Services</a>
-          <a href="#about" className="hover:underline hover:text-yellow-300">About</a>
-          <a href="#contact" className="hover:underline hover:text-yellow-300">Contact</a>
-        </nav>
-      </header>
+        <Navbar />
 
       {/* Hero */}
       <main className="flex flex-1 items-center justify-center text-center px-6 py-20 relative" data-aos="zoom-in">
