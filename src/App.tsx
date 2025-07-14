@@ -3,6 +3,7 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { BrainCircuit, ShieldCheck, BriefcaseBusiness, BarChart } from 'lucide-react';
 import { Navbar } from './components/Navbar';
+import { Footer } from './components/Footer';
 
 function App() {
 useEffect(() => {
@@ -50,7 +51,7 @@ useEffect(() => {
             Business solutions that bring everything together — smarter, safer, and scalable.
           </p>
           <a
-            href="#contact"
+            href="#features"
             className="inline-block px-8 py-4 bg-yellow-300 text-[#08448E] font-bold rounded-full shadow-lg hover:bg-yellow-400 transition duration-300"
           >
             Get Started
@@ -117,9 +118,7 @@ useEffect(() => {
       </section>
 
       {/* Footer */}
-      <footer className="p-4 text-center text-sm text-white/70 bg-[#062f66]">
-        &copy; {new Date().getFullYear()} Unison. All rights reserved.
-      </footer>
+        <Footer />
     </div>
   );
 }
