@@ -53,7 +53,7 @@ useEffect(() => {
             href="#contact"
             className="inline-block px-8 py-4 bg-yellow-300 text-[#08448E] font-bold rounded-full shadow-lg hover:bg-yellow-400 transition duration-300"
           >
-            Contact Us
+            Get Started
           </a>
         </div>
       </main>

@@ -8,18 +8,16 @@ export const Navbar: React.FC = () => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
     };
-
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Function to close menu
   const closeMenu = () => setMenuOpen(false);
 
   return (
     <header
       className={`transition-all duration-300 sticky top-0 z-50 bg-[#08448E] shadow-md 
-        ${scrolled ? 'py-2' : 'py-4'} px-4 md:px-6 flex justify-between items-center`}
+        ${scrolled ? 'py-1' : 'py-2'} px-4 md:px-6 flex justify-between items-center`}
     >
       {/* Logo */}
         <div className="flex items-center gap-3">
@@ -27,8 +25,8 @@ export const Navbar: React.FC = () => {
             <img
             src="/unison.png"
             alt="Unison Logo"
-            className={`transition-all duration-300 rounded-full 
-                ${scrolled ? 'h-10 w-10' : 'h-12 w-12'}`}
+            className={`transition-all duration-300 transform hover:scale-110 rounded-full 
+                ${scrolled ? 'h-12 w-12' : 'h-16 w-16'}`}
             />
         </a>
         </div>
@@ -47,17 +45,9 @@ export const Navbar: React.FC = () => {
           viewBox="0 0 24 24"
         >
           {menuOpen ? (
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M6 18L18 6M6 6l12 12"
-            />
+            <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
           ) : (
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M4 6h16M4 12h16M4 18h16"
-            />
+            <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
           )}
         </svg>
       </button>
