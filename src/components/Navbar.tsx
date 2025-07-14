@@ -22,16 +22,17 @@ export const Navbar: React.FC = () => {
         ${scrolled ? 'py-2' : 'py-4'} px-4 md:px-6 flex justify-between items-center`}
     >
       {/* Logo */}
-      <div className="flex items-center gap-3">
+        <div className="flex items-center gap-3">
         <a href="https://unison-w.netlify.app/">
-          <img
+            <img
             src="/unison.png"
             alt="Unison Logo"
             className={`transition-all duration-300 rounded-full 
-              ${scrolled ? 'h-8 w-8' : 'h-10 w-10'}`}
-          />
+                ${scrolled ? 'h-10 w-10' : 'h-12 w-12'}`}
+            />
         </a>
-      </div>
+        </div>
+
 
       {/* Mobile menu button */}
       <button
