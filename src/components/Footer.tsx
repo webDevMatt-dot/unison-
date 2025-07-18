@@ -1,13 +1,14 @@
 import React from "react";
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { Instagram, Twitter, MessageCircle, Mail, Phone, MapPin } from "lucide-react";
 
 export const Footer: React.FC = () => {
   const services = [
-    { name: "AI & ML", href: "https://unison-w.netlify.app/AIML" },
-    { name: "Data Engineering", href: "./components/DataEng" },
-    { name: "SAP Solutions", href: "./components/SAP" },
-    { name: "Cybersecurity", href: "./components/AntiVirus" },
+    { name: "AI & ML", href: "/AIML" },
+    { name: "Data Engineering", href: "/DataEng" },
+    { name: "SAP Solutions", href: "/SAP" },
+    { name: "Cybersecurity", href: "/AntiVirus" },
   ];
 
   const socialLinks = [
@@ -27,11 +28,26 @@ export const Footer: React.FC = () => {
       icon: <MessageCircle className="w-5 h-5" />,
     },
   ];
-  
+
   const contactDetails = [
-      { href: "mailto:admin@unidata.co.za", ariaLabel: "Email", icon: <Mail className="w-5 h-5 mr-2" />, text: "admin@unidata.co.za" },
-      { href: "tel:+27816515179", ariaLabel: "Phone", icon: <Phone className="w-5 h-5 mr-2" />, text: "+27 81 651 5179" },
-      { href: "https://www.google.com/maps?q=8+Fred+Verseput+Road,+Halfway+Gardens+1686,+Midrand", ariaLabel: "Address", icon: <MapPin className="w-5 h-5 mr-2" />, text: "Midrand, GP" },
+    {
+      href: "mailto:admin@unidata.co.za",
+      ariaLabel: "Email",
+      icon: <Mail className="w-5 h-5 mr-2" />,
+      text: "admin@unidata.co.za",
+    },
+    {
+      href: "tel:+27816515179",
+      ariaLabel: "Phone",
+      icon: <Phone className="w-5 h-5 mr-2" />,
+      text: "+27 81 651 5179",
+    },
+    {
+      href: "https://www.google.com/maps?q=8+Fred+Verseput+Road,+Halfway+Gardens+1686,+Midrand",
+      ariaLabel: "Address",
+      icon: <MapPin className="w-5 h-5 mr-2" />,
+      text: "Midrand, GP",
+    },
   ];
 
   return (
@@ -66,25 +82,33 @@ export const Footer: React.FC = () => {
             transition={{ duration: 0.5, delay: 0.1 }}
           >
             {services.map((service) => (
-              <a key={service.name} href={service.href} className="text-sm text-gray-600 hover:text-blue-600 transition">
-                {service.name}
-              </a>
+              <Link key={service.name} href={service.href} passHref>
+                <a className="text-sm text-gray-600 hover:text-blue-600 transition">
+                  {service.name}
+                </a>
+              </Link>
             ))}
           </motion.nav>
-          
+
           {/* Contact Details */}
           <motion.div
-              className="flex flex-wrap justify-center items-center gap-x-6 gap-y-2 mt-6 text-sm text-gray-600"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-            >
-              {contactDetails.map((detail) => (
-                <a key={detail.ariaLabel} href={detail.href} className="flex items-center hover:text-blue-600 transition" target="_blank" rel="noopener noreferrer">
-                  {detail.icon}
-                  <span>{detail.text}</span>
-                </a>
-              ))}
+            className="flex flex-wrap justify-center items-center gap-x-6 gap-y-2 mt-6 text-sm text-gray-600"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+          >
+            {contactDetails.map((detail) => (
+              <a
+                key={detail.ariaLabel}
+                href={detail.href}
+                className="flex items-center hover:text-blue-600 transition"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {detail.icon}
+                <span>{detail.text}</span>
+              </a>
+            ))}
           </motion.div>
         </div>
 

@@ -1,9 +1,8 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { BrainCircuit, ShieldCheck } from 'lucide-react';
-import { Navbar } from './Navbar';
-import { Footer } from './Footer';
-
+import { Navbar } from '../components/Navbar';
+import { Footer } from '../components/Footer';
 
 const AiMlPage = () => {
   const service = {
@@ -20,8 +19,8 @@ const AiMlPage = () => {
 
   return (
     <div className="min-h-screen bg-gray-50 text-gray-800 w-full">
-        <Navbar />
-        
+      <Navbar />
+
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -58,14 +57,18 @@ const AiMlPage = () => {
             ))}
           </ul>
         </div>
-        
+
         <div className="mt-16 text-center">
-          <a href="#contact" className="inline-block px-10 py-4 bg-blue-600 text-white font-bold rounded-full shadow-lg hover:bg-blue-700 transition duration-300 transform hover:scale-105">
+          <a
+            href="/#contact"
+            className="inline-block px-10 py-4 bg-blue-600 text-white font-bold rounded-full shadow-lg hover:bg-blue-700 transition duration-300 transform hover:scale-105"
+          >
             Request a Consultation
           </a>
         </div>
       </motion.div>
-    <Footer />
+
+      <Footer />
     </div>
   );
 };

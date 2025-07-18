@@ -3,10 +3,10 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import App from './App';
-import AIML from './components/AIML';
-import AntiVirus from './components/AntiVirus';
-import DataEng from './components/DataEng';
-import SAP from './components/SAP';
+import AIML from './pages/AIML';
+import AntiVirus from './pages/AntiVirus';
+import DataEng from './pages/DataEng';
+import SAP from './pages/SAP';
 
 const container = document.getElementById('root') as HTMLElement;
 const root = ReactDOM.createRoot(container);

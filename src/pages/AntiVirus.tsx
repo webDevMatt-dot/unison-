@@ -1,27 +1,27 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { BarChart, ShieldCheck } from 'lucide-react';
-import { Navbar } from './Navbar';
-import { Footer } from './Footer';
+import { ShieldCheck as PageIcon, ShieldCheck } from 'lucide-react';
+import { Navbar } from '../components/Navbar';
+import { Footer } from '../components/Footer';
 
-
-const DataPage = () => {
+const SecurityPage = () => {
   const service = {
-    icon: <BarChart className="h-12 w-12 text-blue-600" />,
-    pageTitle: 'Data Engineering & Decision Science',
-    description: 'Unlock the value of your data. Our experts design and build robust data pipelines, implement powerful analytics platforms, and apply advanced data science techniques to help you make smarter, data-driven decisions.',
+    icon: <PageIcon className="h-12 w-12 text-blue-600" />,
+    pageTitle: 'Advanced Cybersecurity & Anti-Virus Solutions',
+    description:
+      'In today’s digital landscape, robust security is non-negotiable. Our cybersecurity packages provide multi-layered protection, from advanced anti-virus and malware detection to proactive threat hunting and incident response, all tailored to your specific business needs.',
     features: [
-      'Cloud data warehouse architecture (Snowflake, BigQuery).',
-      'ETL/ELT pipeline development.',
-      'Predictive modeling and machine learning.',
-      'Interactive dashboarding and BI (Tableau, Power BI).',
+      '24/7 network monitoring and threat detection.',
+      'Endpoint protection for all devices.',
+      'Employee security awareness training.',
+      'Compliance and data privacy management (POPIA, GDPR).',
     ],
   };
 
   return (
     <div className="min-h-screen bg-gray-50 text-gray-800 w-full">
-        <Navbar />
-      
+      <Navbar />
+
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -37,8 +37,12 @@ const DataPage = () => {
           >
             {service.icon}
           </motion.div>
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">{service.pageTitle}</h1>
-          <p className="text-lg text-gray-600 leading-relaxed mb-12">{service.description}</p>
+          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+            {service.pageTitle}
+          </h1>
+          <p className="text-lg text-gray-600 leading-relaxed mb-12">
+            {service.description}
+          </p>
         </div>
 
         <div className="bg-white p-8 rounded-2xl shadow-lg">
@@ -58,16 +62,20 @@ const DataPage = () => {
             ))}
           </ul>
         </div>
-        
+
         <div className="mt-16 text-center">
-          <a href="#contact" className="inline-block px-10 py-4 bg-blue-600 text-white font-bold rounded-full shadow-lg hover:bg-blue-700 transition duration-300 transform hover:scale-105">
+          <a
+            href="/#contact"
+            className="inline-block px-10 py-4 bg-blue-600 text-white font-bold rounded-full shadow-lg hover:bg-blue-700 transition duration-300 transform hover:scale-105"
+          >
             Request a Consultation
           </a>
         </div>
       </motion.div>
-    <Footer />
+
+      <Footer />
     </div>
   );
 };
 
-export default DataPage;
+export default SecurityPage;
