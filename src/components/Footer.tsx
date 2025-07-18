@@ -4,7 +4,7 @@ import { Instagram, Twitter, MessageCircle, Mail, Phone, MapPin } from "lucide-r
 
 export const Footer: React.FC = () => {
   const services = [
-    { name: "AI & ML", href: "./components/AIML" },
+    { name: "AI & ML", href: "https://unison-w.netlify.app/AIML" },
     { name: "Data Engineering", href: "./components/DataEng" },
     { name: "SAP Solutions", href: "./components/SAP" },
     { name: "Cybersecurity", href: "./components/AntiVirus" },
