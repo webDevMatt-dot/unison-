@@ -20,25 +20,25 @@ function App() {
       icon: <BrainCircuit className="h-10 w-10 mx-auto text-[#08448E]" />,
       title: 'AI & ML Training',
       desc: 'Empower your team with the skills of tomorrow.',
-      link: '/aiml',
+      link: '/AIML',
     },
     {
       icon: <ShieldCheck className="h-10 w-10 mx-auto text-[#08448E]" />,
       title: 'Anti-Virus Packages',
       desc: 'Robust protection tailored for your business.',
-      link: '/antivirus',
+      link: '/AntiVirus',
     },
     {
       icon: <BriefcaseBusiness className="h-10 w-10 mx-auto text-[#08448E]" />,
       title: 'SAP Solutions',
       desc: 'Custom enterprise solutions built on SAP.',
-      link: '/sap',
+      link: '/SAP',
     },
     {
       icon: <BarChart className="h-10 w-10 mx-auto text-[#08448E]" />,
       title: 'Data Engineering & Science',
       desc: 'Turn your data into decisions.',
-      link: '/data',
+      link: '/DataEng',
     },
   ];
 

@@ -3,9 +3,9 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
 
 const navLinks = [
-  { title: 'Services', href: '#features' },
-  { title: 'About', href: '#about' },
-  { title: 'Contact', href: '#contact' },
+  { title: 'Services', href: '/#features' },
+  { title: 'About', href: '/#about' },
+  { title: 'Contact', href: '/#contact' },
 ];
 
 export const Navbar: React.FC = () => {

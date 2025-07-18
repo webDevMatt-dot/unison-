@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { BarChart, ShieldCheck } from 'lucide-react';
 import { Navbar } from './Navbar';
+import { Footer } from './Footer';
 
 
 const DataPage = () => {
@@ -64,6 +65,7 @@ const DataPage = () => {
           </a>
         </div>
       </motion.div>
+    <Footer />
     </div>
   );
 };

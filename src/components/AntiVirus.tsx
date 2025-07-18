@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { ShieldCheck as PageIcon, ShieldCheck } from 'lucide-react';
 import { Navbar } from './Navbar';
+import { Footer } from './Footer';
 
 const SecurityPage = () => {
   const service = {
@@ -66,6 +67,7 @@ const SecurityPage = () => {
           </a>
         </div>
       </motion.div>
+    <Footer />
     </div>
   );
 };

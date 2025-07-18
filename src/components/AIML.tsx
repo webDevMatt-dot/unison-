@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { BrainCircuit, ShieldCheck } from 'lucide-react';
 import { Navbar } from './Navbar';
+import { Footer } from './Footer';
 
 
 const AiMlPage = () => {
@@ -64,6 +65,7 @@ const AiMlPage = () => {
           </a>
         </div>
       </motion.div>
+    <Footer />
     </div>
   );
 };

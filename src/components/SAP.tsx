@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { BriefcaseBusiness, ShieldCheck } from 'lucide-react';
 import { Navbar } from './Navbar';
+import { Footer } from './Footer';
 
 
 const SapPage = () => {
@@ -65,6 +66,8 @@ const SapPage = () => {
           </a>
         </div>
       </motion.div>
+    <Footer />
+      
     </div>
   );
 };
