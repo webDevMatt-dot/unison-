@@ -4,10 +4,10 @@ import { Instagram, Twitter, MessageCircle, Mail, Phone, MapPin } from "lucide-r
 
 export const Footer: React.FC = () => {
   const services = [
-    { name: "AI & ML", href: "/AIML" },
-    { name: "Data Engineering", href: "/DataEng" },
-    { name: "SAP Solutions", href: "/SAP" },
-    { name: "Cybersecurity", href: "/AntiVirus" },
+    { name: "AI & ML", href: "./components/AIML" },
+    { name: "Data Engineering", href: "./components/DataEng" },
+    { name: "SAP Solutions", href: "./components/SAP" },
+    { name: "Cybersecurity", href: "./components/AntiVirus" },
   ];
 
   const socialLinks = [
