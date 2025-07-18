@@ -6,8 +6,8 @@ export const Footer: React.FC = () => {
   const services = [
     { name: "AI & ML", href: "/AIML" },
     { name: "Data Engineering", href: "/DataEng" },
-    { name: "SAP Solutions", href: "SAP" },
-    { name: "Cybersecurity", href: "AntiVirus" },
+    { name: "SAP Solutions", href: "/SAP" },
+    { name: "Cybersecurity", href: "/AntiVirus" },
   ];
 
   const socialLinks = [
