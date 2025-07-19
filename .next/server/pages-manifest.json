@@ -1,7 +1,7 @@
 {
   "/AIML": "pages/AIML.html",
-  "/DataEng": "pages/DataEng.html",
   "/AntiVirus": "pages/AntiVirus.html",
+  "/DataEng": "pages/DataEng.html",
   "/SAP": "pages/SAP.html",
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
