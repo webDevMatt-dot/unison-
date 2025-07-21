@@ -1,4 +1,3 @@
-import React from "react";
 import Link from "next/link"; // Assuming Next.js for routing
 import { FaBrain, FaCogs, FaDatabase, FaShieldAlt } from "react-icons/fa";
 
