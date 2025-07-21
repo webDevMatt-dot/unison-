@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { FaBrain, FaCogs, FaDatabase, FaShieldAlt } from "react-icons/fa";
+import "./Services.css";
 
 const Services = () => {
   return (

@@ -1,0 +1,121 @@
+/* --- Services Section --- */
+.services {
+  padding: 4rem 5%; /* Consistent padding with other sections */
+  max-width: 1200px; /* Max width for content */
+  margin: 0 auto; /* Center the section content */
+}
+
+.section-title {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 3rem; /* More space below title */
+  color: var(--primary-color);
+  font-weight: 700;
+}
+
+.service-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Responsive grid */
+  gap: 2rem; /* Space between cards */
+  margin-top: 2rem;
+}
+
+.service-card {
+  /* The <a> tag now acts as the card */
+  display: flex; /* Use flexbox for content alignment inside the card */
+  flex-direction: column; /* Stack icon, title, and paragraph vertically */
+  align-items: center; /* Center content horizontally */
+  text-align: center; /* Text alignment */
+
+  background: var(--card-bg-color); /* Semi-transparent background */
+  border: 1px solid var(--card-border-color); /* Subtle border */
+  border-radius: 15px; /* Rounded corners */
+  padding: 2.5rem 2rem; /* Generous padding inside the card */
+  backdrop-filter: blur(5px); /* Glassmorphism effect */
+
+  /* Smooth transitions for hover effects */
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+
+  text-decoration: none; /* Remove underline from the link */
+  color: inherit; /* Inherit text color from parent for default text */
+}
+
+.service-card:hover {
+  transform: translateY(-10px); /* Lift effect on hover */
+  box-shadow: 0 15px 40px var(--shadow-color); /* More pronounced shadow on hover */
+  background-color: rgba(38, 38, 42, 0.7); /* Slightly darker background on hover */
+  cursor: pointer; /* Indicate it's clickable */
+}
+
+.service-icon {
+  font-size: 3.5rem; /* Larger icon size */
+  color: var(--accent-color); /* Accent color for icons */
+  margin-bottom: 1.5rem; /* Space below icon */
+  transition: transform 0.3s ease; /* Transition for icon hover */
+}
+
+.service-card:hover .service-icon {
+  transform: scale(1.1); /* Slightly enlarge icon on card hover */
+}
+
+.service-card h4 {
+  font-size: 1.6rem; /* Larger heading */
+  font-weight: 600;
+  color: var(--primary-color); /* Primary color for headings */
+  margin-bottom: 0.8rem; /* Space below heading */
+}
+
+.service-card p {
+  font-size: 0.95rem;
+  color: var(--secondary-color); /* Secondary color for description */
+  line-height: 1.6;
+}
+
+/* --- Responsive Design for Services --- */
+@media (max-width: 768px) {
+  .services {
+    padding: 3rem 2%; /* Adjust padding for smaller screens */
+  }
+
+  .section-title {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .service-list {
+    grid-template-columns: 1fr; /* Stack cards vertically on mobile */
+    gap: 1.5rem;
+  }
+
+  .service-card {
+    padding: 2rem 1.5rem; /* Adjust card padding for mobile */
+  }
+
+  .service-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+  }
+
+  .service-card h4 {
+    font-size: 1.4rem;
+  }
+
+  .service-card p {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .service-card {
+    padding: 1.5rem 1rem;
+  }
+  .service-icon {
+    font-size: 2.5rem;
+  }
+  .service-card h4 {
+    font-size: 1.2rem;
+  }
+  .service-card p {
+    font-size: 0.85rem;
+  }
+}
