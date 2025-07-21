@@ -1,53 +1,24 @@
-import { useState, useEffect } from "react";
 import { FaBrain, FaCogs, FaDatabase, FaShieldAlt } from "react-icons/fa";
 import "./App.css";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
 
 function App() {
-  const [isScrolled, setIsScrolled] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 50) {
-        setIsScrolled(true); // Set the state when scrolled
-      } else {
-        setIsScrolled(false); // Reset when at the top
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
-
   return (
     <div className="app">
-      {/* Background animated shapes */}
+      {/* Background shapes */}
       <div className="shape shape-1"></div>
       <div className="shape shape-2"></div>
 
-      {/* Header */}
-      <header className={`header ${isScrolled ? "scrolled" : ""}`}>
-        {/* NEW: Use header-inner-content for spacing and alignment */}
-        <div className="header-inner-content">
-         {/* <h1 className="logo">Unison</h1> Your logo goes here */}
-          <nav className="nav">
-            <a href="#services">Services</a>
-            <a href="#contact">Contact</a>
-            <a href="#about">Abouts Us</a>
-            <a href="#careers">Careers</a>
-          </nav>
-        </div>
-        {/* END NEW */}
-      </header>
+      {/* Header Component */}
+      <Header />
 
       <main>
         {/* Hero Section */}
         <section className="hero">
           <h2 className="hero-title">Empowering Businesses with Smart Solutions</h2>
           <p className="hero-subtitle">
-            We deliver expert consulting in AI & ML, SAP, Data Engineering, and
-            Cybersecurity.
+            We deliver expert consulting in AI & ML, SAP, Data Engineering, and Cybersecurity.
           </p>
           <a href="#services" className="cta-button">
             Explore Our Services
@@ -82,10 +53,8 @@ function App() {
         </section>
       </main>
 
-      {/* Footer */}
-      <footer className="footer" id="contact">
-        <p>© {new Date().getFullYear()} Unison Consulting • All rights reserved</p>
-      </footer>
+      {/* Footer Component */}
+      <Footer />
     </div>
   );
 }
