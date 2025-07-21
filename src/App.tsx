@@ -34,7 +34,7 @@ function App() {
           <nav className="nav">
             <a href="#services">Services</a>
             <a href="#contact">Contact</a>
-            <a href="#about">About Us</a>
+            <a href="#about">Abouts Us</a>
             <a href="#careers">Careers</a>
           </nav>
         </div>
