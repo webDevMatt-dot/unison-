@@ -7,7 +7,7 @@ const Services = () => {
       <h3 className="section-title">Our Core Expertise</h3>
       <div className="service-list">
         {/* AI & Machine Learning Card */}
-        <Link href="/services/ai-ml" passHref>
+        <Link href="src/pages/AIML.tsx" passHref>
           <div className="service-card">
             <FaBrain className="service-icon" />
             <h4>AI & Machine Learning</h4>
