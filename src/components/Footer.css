@@ -1,0 +1,120 @@
+/* --- Footer --- */
+.footer {
+  /* Using your app's background color or a slightly darker shade */
+  background-color: var(--bg-color);
+  color: var(--secondary-color); /* Lighter grey for main text */
+  padding: 4rem 5%; /* More vertical padding, keeping horizontal consistent with app */
+  font-family: var(--font-family); /* Use the app's primary font */
+  border-top: 1px solid var(--card-border-color); /* Consistent border from header */
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex; /* Use flexbox for more controlled layout */
+  flex-wrap: wrap; /* Allow items to wrap on smaller screens */
+  justify-content: space-between; /* Distribute items with space between them */
+  gap: 2rem; /* Gap between columns */
+  align-items: flex-start; /* Align items to the top of their container */
+}
+
+.footer-logo {
+  font-size: 2.2rem; /* Slightly larger logo */
+  font-weight: 700; /* Bolder for prominence */
+  color: var(--accent-color); /* Use your accent color for the logo */
+  margin-bottom: 1rem; /* More space below logo */
+  flex-basis: 100%; /* Force logo to take full width on its own line initially */
+  text-align: center; /* Center logo on its own line */
+}
+
+.footer-section {
+  flex: 1; /* Allow sections to grow and shrink */
+  min-width: 220px; /* Minimum width before wrapping */
+  padding: 1rem; /* Internal padding for each section */
+  border-radius: 10px; /* Subtle rounded corners */
+  transition: background-color 0.3s ease; /* Smooth transition for hover */
+}
+
+/* Optional: Add a subtle hover effect to sections */
+.footer-section:hover {
+  background-color: rgba(255, 255, 255, 0.05); /* Slight highlight on hover */
+}
+
+
+.footer-section h4 {
+  font-size: 1.15rem; /* Slightly refined heading size */
+  font-weight: 600; /* Bolder headings */
+  margin-bottom: 1rem; /* More space below heading */
+  color: var(--primary-color); /* White/light color for headings */
+  position: relative; /* For underline effect */
+  display: inline-block; /* Helps with underline width */
+}
+
+/* Modern underline effect */
+.footer-section h4::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -5px; /* Adjust distance from text */
+  width: 50px; /* Fixed width underline */
+  height: 2px;
+  background-color: var(--accent-color); /* Accent color for underline */
+  border-radius: 2px;
+}
+
+.footer-section p {
+  margin: 0.6rem 0; /* More spacing between lines */
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.footer a {
+  color: var(--accent-color); /* Consistent accent color for links */
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer a:hover {
+  color: var(--primary-color); /* Change to primary color on hover for better contrast */
+  text-decoration: underline;
+}
+
+/* Specific styling for the copyright text */
+.footer-bottom-text {
+  margin-top: 3rem; /* More space above copyright */
+  text-align: center;
+  font-size: 0.8rem;
+  color: var(--secondary-color);
+  opacity: 0.8; /* Slightly less prominent */
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 768px) {
+  .footer-content {
+    grid-template-columns: 1fr; /* Stack columns on smaller screens */
+    text-align: center; /* Center align text on mobile */
+  }
+
+  .footer-logo {
+    font-size: 2rem;
+    margin-bottom: 2rem; /* More space when stacked */
+  }
+
+  .footer-section {
+    min-width: unset; /* Remove min-width to allow full width */
+  }
+
+  .footer-section h4 {
+    display: block; /* Make heading block to center */
+    text-align: center;
+  }
+
+  .footer-section h4::after {
+    left: 50%; /* Center the underline */
+    transform: translateX(-50%);
+  }
+
+  .footer-section p {
+    text-align: center;
+  }
+}
