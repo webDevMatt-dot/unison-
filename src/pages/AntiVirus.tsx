@@ -1,4 +1,3 @@
-import React from 'react';
 import { FaShieldAlt } from 'react-icons/fa'; // Assuming react-icons is installed
 
 const AntiVirusPage = () => {

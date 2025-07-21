@@ -1,4 +1,3 @@
-import React from 'react';
 import { FaDatabase } from 'react-icons/fa'; // Assuming react-icons is installed
 
 const DataEngineeringPage = () => {
