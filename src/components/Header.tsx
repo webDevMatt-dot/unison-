@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import "./Header.css";
 
 function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
