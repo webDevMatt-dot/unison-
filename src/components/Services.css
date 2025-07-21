@@ -1,80 +1,78 @@
 /* --- Services Section --- */
 .services {
-  padding: 4rem 5%; /* Consistent padding with other sections */
-  max-width: 1200px; /* Max width for content */
-  margin: 0 auto; /* Center the section content */
+  padding: 4rem 5%;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .section-title {
   text-align: center;
   font-size: 2.5rem;
-  margin-bottom: 3rem; /* More space below title */
+  margin-bottom: 3rem;
   color: var(--primary-color);
   font-weight: 700;
 }
 
 .service-list {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Responsive grid */
-  gap: 2rem; /* Space between cards */
+  grid-template-columns: repeat(2, 1fr); /* Always 2 columns */
+  gap: 2rem;
   margin-top: 2rem;
 }
 
 .service-card {
-  /* The <a> tag now acts as the card */
-  display: flex; /* Use flexbox for content alignment inside the card */
-  flex-direction: column; /* Stack icon, title, and paragraph vertically */
-  align-items: center; /* Center content horizontally */
-  text-align: center; /* Text alignment */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 
-  background: var(--card-bg-color); /* Semi-transparent background */
-  border: 1px solid var(--card-border-color); /* Subtle border */
-  border-radius: 15px; /* Rounded corners */
-  padding: 2.5rem 2rem; /* Generous padding inside the card */
-  backdrop-filter: blur(5px); /* Glassmorphism effect */
+  background: var(--card-bg-color);
+  border: 1px solid var(--card-border-color);
+  border-radius: 15px;
+  padding: 2.5rem 2rem;
+  backdrop-filter: blur(5px);
 
-  /* Smooth transitions for hover effects */
   transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
 
-  text-decoration: none; /* Remove underline from the link */
-  color: inherit; /* Inherit text color from parent for default text */
+  text-decoration: none;
+  color: inherit;
 }
 
 .service-card:hover {
-  transform: translateY(-10px); /* Lift effect on hover */
-  box-shadow: 0 15px 40px var(--shadow-color); /* More pronounced shadow on hover */
-  background-color: rgba(38, 38, 42, 0.7); /* Slightly darker background on hover */
-  cursor: pointer; /* Indicate it's clickable */
+  transform: translateY(-10px);
+  box-shadow: 0 15px 40px var(--shadow-color);
+  background-color: rgba(38, 38, 42, 0.7);
+  cursor: pointer;
 }
 
 .service-icon {
-  font-size: 3.5rem; /* Larger icon size */
-  color: var(--accent-color); /* Accent color for icons */
-  margin-bottom: 1.5rem; /* Space below icon */
-  transition: transform 0.3s ease; /* Transition for icon hover */
+  font-size: 3.5rem;
+  color: var(--accent-color);
+  margin-bottom: 1.5rem;
+  transition: transform 0.3s ease;
 }
 
 .service-card:hover .service-icon {
-  transform: scale(1.1); /* Slightly enlarge icon on card hover */
+  transform: scale(1.1);
 }
 
 .service-card h4 {
-  font-size: 1.6rem; /* Larger heading */
+  font-size: 1.6rem;
   font-weight: 600;
-  color: var(--primary-color); /* Primary color for headings */
-  margin-bottom: 0.8rem; /* Space below heading */
+  color: var(--primary-color);
+  margin-bottom: 0.8rem;
 }
 
 .service-card p {
   font-size: 0.95rem;
-  color: var(--secondary-color); /* Secondary color for description */
+  color: var(--secondary-color);
   line-height: 1.6;
 }
 
-/* --- Responsive Design for Services --- */
+/* --- Responsive Design --- */
 @media (max-width: 768px) {
   .services {
-    padding: 3rem 2%; /* Adjust padding for smaller screens */
+    padding: 3rem 2%;
   }
 
   .section-title {
@@ -83,12 +81,12 @@
   }
 
   .service-list {
-    grid-template-columns: 1fr; /* Stack cards vertically on mobile */
+    grid-template-columns: 1fr; /* Stack vertically on smaller screens */
     gap: 1.5rem;
   }
 
   .service-card {
-    padding: 2rem 1.5rem; /* Adjust card padding for mobile */
+    padding: 2rem 1.5rem;
   }
 
   .service-icon {
@@ -109,12 +107,15 @@
   .service-card {
     padding: 1.5rem 1rem;
   }
+
   .service-icon {
     font-size: 2.5rem;
   }
+
   .service-card h4 {
     font-size: 1.2rem;
   }
+
   .service-card p {
     font-size: 0.85rem;
   }
