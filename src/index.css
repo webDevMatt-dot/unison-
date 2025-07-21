@@ -1,113 +1,203 @@
-/* Import Google Font */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+/* --- Google Font & Global Styles --- */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
 
-/* ---------- Root Styles ---------- */
 :root {
-  --color-bg: #121218;
-  --color-text: #ffffff;
-  --color-subtext: #bbbbbb;
-  --color-accent: #6a5acd;
-  --color-card-bg: #1e1e28;
-  --color-border: #2d2d3a;
-
+  --bg-color: #121218;
+  --primary-color: #f7f7f7;
+  --secondary-color: #a0a0a0;
+  --accent-color: #6a5acd; /* Slate Blue */
+  --card-bg-color: rgba(38, 38, 42, 0.5);
+  --card-border-color: rgba(255, 255, 255, 0.1);
+  --shadow-color: rgba(0, 0, 0, 0.2);
   --font-family: 'Poppins', sans-serif;
 
-  --transition: all 0.3s ease;
+  /* Define default header height variables for easier padding calculation */
+  --header-height-default: 4.5rem; /* Adjust this based on actual logo/nav/padding height */
+  --header-height-scrolled: 3rem; /* Adjust this for the shrunk state */
 }
 
-/* ---------- Global Reset ---------- */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-body {
-  font-family: var(--font-family);
-  background-color: var(--color-bg);
-  color: var(--color-text);
-  line-height: 1.6;
-  overflow-x: hidden;
+html {
+  scroll-behavior: smooth;
 }
 
+body {
+  font-family: var(--font-family);
+  background-color: var(--bg-color);
+  color: var(--primary-color);
+  line-height: 1.6;
+  overflow-x: hidden; /* Prevent horizontal scroll from shapes */
+}
+
+.app {
+  position: relative;
+  z-index: 1;
+}
+
+/* --- Animated Background Shapes --- */
+.shape {
+  position: absolute;
+  border-radius: 50%;
+  background: linear-gradient(45deg, var(--accent-color), #483d8b);
+  filter: blur(150px);
+  z-index: -1;
+}
+
+.shape-1 {
+  width: 400px;
+  height: 400px;
+  top: -100px;
+  left: -100px;
+}
+
+.shape-2 {
+  width: 300px;
+  height: 300px;
+  bottom: -50px;
+  right: -50px;
+}
+
+/* --- Typography & Links --- */
 a {
+  color: var(--accent-color);
   text-decoration: none;
-  color: var(--color-accent);
-  transition: var(--transition);
+  transition: color 0.3s ease;
 }
 
 a:hover {
-  color: var(--color-text);
+  color: var(--primary-color);
 }
 
-/* ---------- Layout ---------- */
-.app {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 1rem;
+h1, h2, h3, h4 {
+  font-weight: 600;
 }
 
-/* ---------- Header ---------- */
+.section-title {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+}
+
+/* --- Header --- */
 .header {
-  width: 100%;
-  background: rgba(18, 18, 24, 0.9);
-  position: fixed;
+  /* Position and dimensions for full width, sticky to top */
+  position: fixed; /* Use fixed for consistent positioning regardless of scroll-behavior */
   top: 0;
   left: 0;
-  z-index: 100;
-  padding: 1rem 0;
-  border-bottom: 1px solid var(--color-border);
+  width: 100%;
+  z-index: 100; /* Ensure it's above other content */
+
+  /* Background and visual effects */
+  background: rgba(18, 18, 24, 0.8);
   backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--card-border-color);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Default subtle shadow */
+
+  /* Transitions for all dynamic properties */
+  transition: background-color 0.3s ease, box-shadow 0.3s ease, height 0.3s ease;
+
+  /* Set default height based on content or a fixed value */
+  height: var(--header-height-default); /* Use variable for height */
+  display: flex; /* Flex container for header-inner-content */
+  align-items: center; /* Vertically center the inner content */
+  padding: 0; /* NO padding on the header itself for full width */
 }
 
+/* Inner container for header content to control max-width and internal padding */
 .header-inner-content {
   display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 1rem;
+  justify-content: fe; /* Logo left, Nav right */
+  align-items: center; /* Vertically center logo and nav */
+  width: 100%; /* Take full width of its parent (.header) */
+  max-width: 1200px; /* Max width for content on large screens */
+  margin: 0 auto; /* Center the content within the header */
+  padding: 0 5%; /* Horizontal padding for content from screen edges */
+}
+
+.logo {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--primary-color); /* Ensure logo color is primary */
+  transition: font-size 0.3s ease;
 }
 
 .nav a {
   margin-left: 2rem;
-  font-weight: 500;
   font-size: 1rem;
-  color: var(--color-text);
+  font-weight: 400;
+  color: var(--primary-color); /* Ensure nav links are primary color by default */
+  transition: color 0.3s ease, font-size 0.3s ease; /* Transition color on hover and font-size on scroll */
 }
 
 .nav a:hover {
-  color: var(--color-accent);
+  color: var(--accent-color); /* Accent color on hover */
 }
 
-/* ---------- Hero Section ---------- */
+
+/* --- Styles for Scrolled Header (Shrinking Effect) --- */
+.header.scrolled {
+  height: var(--header-height-scrolled); /* Smaller height when scrolled */
+  box-shadow: 0 4px 15px var(--shadow-color); /* More pronounced shadow when scrolled */
+}
+
+.header.scrolled .header-inner-content {
+  /* Adjust vertical padding of inner content to match new header height */
+  /* This ensures vertical alignment within the smaller header height */
+  padding-top: 0.5rem; /* Adjusted for smaller height */
+  padding-bottom: 0.5rem; /* Adjusted for smaller height */
+}
+
+.header.scrolled .logo {
+  font-size: 1.5rem; /* Smaller logo when scrolled */
+}
+
+.header.scrolled .nav a {
+  font-size: 0.9rem; /* Smaller nav links when scrolled */
+}
+
+/* --- Hero Section --- */
 .hero {
-  padding-top: 7rem;
-  padding-bottom: 6rem;
   text-align: center;
+  /* Crucial: Add padding-top to push content below the fixed header */
+  padding-top: var(--header-height-default); /* Push content down by default header height */
+  padding-bottom: 8rem; /* Retain original bottom padding */
+  padding-left: 2rem;
+  padding-right: 2rem;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh; /* Example: make hero at least full viewport height */
 }
 
 .hero-title {
-  font-size: 3rem;
-  font-weight: 600;
-  margin-bottom: 1rem;
+  font-size: 3.5rem;
+  max-width: 800px;
+  line-height: 1.2;
 }
 
 .hero-subtitle {
   font-size: 1.2rem;
-  color: var(--color-subtext);
-  max-width: 700px;
-  margin: 0 auto 2rem;
+  color: var(--secondary-color);
+  margin-top: 1rem;
+  max-width: 600px;
 }
 
 .cta-button {
   display: inline-block;
-  padding: 0.75rem 2rem;
-  background-color: var(--color-accent);
-  color: var(--color-text);
-  border-radius: 30px;
+  background-color: var(--accent-color);
+  color: var(--primary-color);
+  padding: 0.8rem 2rem;
+  border-radius: 50px;
+  margin-top: 2rem;
   font-weight: 600;
-  transition: var(--transition);
+  transition: transform 0.3s ease, background-color 0.3s ease;
 }
 
 .cta-button:hover {
@@ -115,42 +205,36 @@ a:hover {
   transform: scale(1.05);
 }
 
-/* ---------- Services Section ---------- */
+/* --- Services Section --- */
 .services {
-  padding: 5rem 0 3rem;
-  text-align: center;
-}
-
-.section-title {
-  font-size: 2.5rem;
-  font-weight: 600;
-  margin-bottom: 3rem;
+  padding: 4rem 5%;
 }
 
 .service-list {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 2rem;
-  padding: 0 1rem;
+  margin-top: 2rem;
 }
 
 .service-card {
-  background: var(--color-card-bg);
-  border: 1px solid var(--color-border);
+  background: var(--card-bg-color);
+  border: 1px solid var(--card-border-color);
+  border-radius: 15px;
   padding: 2rem;
-  border-radius: 16px;
-  transition: var(--transition);
   text-align: center;
+  backdrop-filter: blur(5px);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .service-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  transform: translateY(-10px);
+  box-shadow: 0 10px 30px var(--shadow-color);
 }
 
 .service-icon {
   font-size: 3rem;
-  color: var(--color-accent);
+  color: var(--accent-color);
   margin-bottom: 1rem;
 }
 
@@ -160,41 +244,112 @@ a:hover {
 }
 
 .service-card p {
+  color: var(--secondary-color);
   font-size: 0.95rem;
-  color: var(--color-subtext);
 }
 
-/* ---------- Footer ---------- */
+/* --- Footer --- */
 .footer {
   text-align: center;
-  padding: 2rem 0;
+  padding: 2rem;
   margin-top: 4rem;
-  border-top: 1px solid var(--color-border);
-  color: var(--color-subtext);
-  font-size: 0.9rem;
+  border-top: 1px solid var(--card-border-color);
+  color: var(--secondary-color);
 }
 
-/* ---------- Responsive ---------- */
+/* --- Responsive Design --- */
 @media (max-width: 768px) {
+  /* Adjust header heights for mobile */
+  :root {
+    --header-height-default: 6rem; /* Taller on mobile due to stacked logo/nav */
+    --header-height-scrolled: 4rem;
+  }
+
   .hero-title {
-    font-size: 2.2rem;
+    font-size: 2.5rem;
   }
 
   .section-title {
     font-size: 2rem;
   }
 
-  .service-list {
-    grid-template-columns: 1fr;
+  .header {
+    height: var(--header-height-default); /* Default mobile header height */
+  }
+
+  .header-inner-content {
+    flex-direction: column; /* Stack logo and nav vertically on mobile */
+    padding: 1rem 5%; /* Adjust padding for mobile inner content */
+  }
+
+  /* Adjust scrolled header for mobile */
+  .header.scrolled {
+    height: var(--header-height-scrolled); /* Smaller height for mobile when scrolled */
+  }
+
+  .header.scrolled .header-inner-content {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+  }
+
+  .header.scrolled .logo {
+    font-size: 1.2rem; /* Even smaller logo for mobile when scrolled */
+  }
+
+  .header.scrolled .nav a {
+    font-size: 0.8rem; /* Even smaller nav links for mobile when scrolled */
   }
 
   .nav {
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 1rem;
+    margin-top: 0.5rem; /* Reduce margin-top on mobile nav */
+    display: flex; /* Ensure nav items are still flex for horizontal arrangement */
+    flex-wrap: wrap; /* Allow nav items to wrap if needed */
+    justify-content: center; /* Center nav items on mobile */
   }
 
   .nav a {
-    margin-left: 1rem;
+    margin: 0 0.5rem; /* Adjust horizontal margin for mobile nav links */
+  }
+
+  /* Adjust hero padding-top for mobile to account for mobile header height */
+  .hero {
+    padding-top: var(--header-height-default);
+  }
+}
+
+@media (max-width: 480px) {
+  /* Further adjustments for very small screens if necessary */
+  :root {
+    --header-height-default: 5rem;
+    --header-height-scrolled: 3.5rem;
+  }
+
+  .header-inner-content {
+    padding: 0.8rem 4%;
+  }
+
+  .header.scrolled .header-inner-content {
+    padding: 0.3rem 4%;
+  }
+
+  .hero-title {
+    font-size: 2rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1rem;
+  }
+
+  .cta-button {
+    padding: 0.6rem 1.5rem;
+    font-size: 0.9rem;
+  }
+
+  .service-card {
+    padding: 1.5rem;
+  }
+
+  .service-icon {
+    font-size: 2.5rem;
   }
 }

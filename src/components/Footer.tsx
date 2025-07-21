@@ -14,6 +14,7 @@ const Footer = () => {
           <p>WhatsApp: <a href="mailto:unidatabusinesssolutions@gmail.com">+27 60 489 7594</a></p>
         </div>
 
+
         <div className="footer-section">
           <h4>Contact Details</h4>
           <p>📞 Phone: <a href="tel:+27604897594">+27 60 489 7594</a></p>
