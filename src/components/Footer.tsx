@@ -1,4 +1,3 @@
-import "./index.css"; // optional if you want to separate footer styles
 
 function Footer() {
   return (
