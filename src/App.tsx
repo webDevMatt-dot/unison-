@@ -1,7 +1,10 @@
 import "./App.css";
 import Header from "./components/Header";
-import Footer from "./components/Footer";
+import Hero from "./components/Hero";
 import Services from "./components/Services";
+import Footer from "./components/Footer";
+
+
 
 function App() {
   return (
@@ -11,26 +14,18 @@ function App() {
       <div className="shape shape-2"></div>
 
       {/* Header Component */}
-      <Header />
+        <Header />
 
       <main>
         {/* Hero Section */}
-        <section className="hero">
-          <h2 className="hero-title">Empowering Businesses with Smart Solutions</h2>
-          <p className="hero-subtitle">
-            We deliver expert consulting in AI & ML, SAP, Data Engineering, and Cybersecurity.
-          </p>
-          <a href="#services" className="cta-button">
-            Explore Our Services
-          </a>
-        </section>
+          <Hero />
 
         {/* Services Section */}
-        <Services />
+          <Services />
       </main>
 
       {/* Footer Component */}
-      <Footer />
+        <Footer />
     </div>
   );
 }
