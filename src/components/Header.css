@@ -1,141 +1,132 @@
-/* --- Header --- */
+/* --- Header Base --- */
 .header {
-  /* Position and dimensions for full width, fixed to top */
-  position: fixed; /* Use fixed for consistent positioning regardless of scroll-behavior */
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 100; /* Ensure it's above other content */
-
-  /* Background and visual effects */
+  z-index: 100;
   background: rgba(18, 18, 24, 0.8);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--card-border-color);
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Default subtle shadow */
-
-  /* Transitions for all dynamic properties */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   transition: background-color 0.3s ease, box-shadow 0.3s ease, height 0.3s ease;
-
-  /* Set default height based on content or a fixed value (from :root vars) */
   height: var(--header-height-default);
-  display: flex; /* Flex container for header-inner-content */
-  align-items: center; /* Vertically center the inner content */
-  padding: 0; /* NO padding on the header itself for full width */
+  display: flex;
+  align-items: center;
+  padding: 0;
 }
 
-/* Inner container for header content to control max-width and internal padding */
 .header-inner-content {
   display: flex;
-  /* ALIGN LINKS TO THE RIGHT: */
-  /* Since your logo is commented out, flex-end will push the nav to the right. */
-  /* If you uncomment the logo and want it left, change this to `justify-content: space-between;` */
-  justify-content: flex-end;
-  align-items: center; /* Vertically center nav */
-  width: 100%; /* Take full width of its parent (.header) */
-  max-width: 1200px; /* Max width for content on large screens */
-  margin: 0 auto; /* Center the content within the header */
-  padding: 0 5%; /* Horizontal padding for content from screen edges */
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 5%;
 }
 
 .logo {
   font-size: 1.8rem;
   font-weight: 700;
-  color: var(--primary-color); /* Ensure logo color is primary */
+  color: var(--primary-color);
   transition: font-size 0.3s ease;
 }
 
+/* --- NAV LINKS --- */
+.nav {
+  display: flex;
+  gap: 2rem;
+}
+
 .nav a {
-  margin-left: 2rem;
   font-size: 1rem;
   font-weight: 400;
-  color: var(--primary-color); /* Default link color */
-  text-decoration: none; /* Remove default underline */
-  /* Smooth transition for hover effect */
-  transition: color 0.3s ease, font-size 0.3s ease;
+  color: var(--primary-color);
+  text-decoration: none;
+  transition: color 0.3s ease;
 }
 
-/* HOVER COLOR EFFECT: */
 .nav a:hover {
-  color: var(--accent-color); /* Change to accent color on hover */
+  color: var(--accent-color);
 }
 
-
-/* --- Styles for Scrolled Header (Shrinking Effect) --- */
+/* --- SCROLLED HEADER --- */
 .header.scrolled {
-  height: var(--header-height-scrolled); /* Smaller height when scrolled */
-  box-shadow: 0 4px 15px var(--shadow-color); /* More pronounced shadow when scrolled */
-}
-
-.header.scrolled .header-inner-content {
-  /* Adjust vertical padding of inner content to match new header height */
-  padding-top: 0.5rem; /* Adjusted for smaller height */
-  padding-bottom: 0.5rem; /* Adjusted for smaller height */
+  height: var(--header-height-scrolled);
+  box-shadow: 0 4px 15px var(--shadow-color);
 }
 
 .header.scrolled .logo {
-  font-size: 1.5rem; /* Smaller logo when scrolled */
+  font-size: 1.5rem;
 }
 
 .header.scrolled .nav a {
-  font-size: 0.9rem; /* Smaller nav links when scrolled */
+  font-size: 0.9rem;
 }
 
-/* --- Responsive Design for Header --- */
+/* --- HAMBURGER BUTTON --- */
+.menu-toggle {
+  display: none;
+  font-size: 2rem;
+  background: none;
+  border: none;
+  color: var(--primary-color);
+  cursor: pointer;
+  z-index: 101; /* Above the nav */
+}
+
+/* --- MOBILE STYLES --- */
 @media (max-width: 768px) {
-  /* Adjust header heights for mobile (from :root vars) */
-  /* :root { --header-height-default: 6rem; --header-height-scrolled: 4rem; } */
-  /* (These are ideally defined in your main App.css :root media query) */
-
-  .header {
-    height: var(--header-height-default); /* Default mobile header height */
-  }
-
-  .header-inner-content {
-    flex-direction: column; /* Stack logo and nav vertically on mobile */
-    justify-content: center; /* Center content when stacked */
-    padding: 1rem 5%; /* Adjust padding for mobile inner content */
-  }
-
-  /* Adjust scrolled header for mobile */
-  .header.scrolled {
-    height: var(--header-height-scrolled); /* Smaller height for mobile when scrolled */
-  }
-
-  .header.scrolled .header-inner-content {
-    padding-top: 0.5rem;
-    padding-bottom: 0.5rem;
-  }
-
-  .header.scrolled .logo {
-    font-size: 1.2rem; /* Even smaller logo for mobile when scrolled */
-  }
-
-  .header.scrolled .nav a {
-    font-size: 0.8rem; /* Even smaller nav links for mobile when scrolled */
+  .menu-toggle {
+    display: block;
   }
 
   .nav {
-    margin-top: 0.5rem; /* Reduce margin-top on mobile nav */
-    display: flex; /* Ensure nav items are still flex for horizontal arrangement */
-    flex-wrap: wrap; /* Allow nav items to wrap if needed */
-    justify-content: center; /* Center nav items on mobile */
+    position: absolute;
+    top: var(--header-height-default);
+    left: 0;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgba(18, 18, 24, 0.95);
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.3s ease;
+  }
+
+  .nav.open {
+    max-height: 300px;
+    padding: 1rem 0;
   }
 
   .nav a {
-    margin: 0 0.5rem; /* Adjust horizontal margin for mobile nav links */
+    width: 100%;
+    padding: 1rem 0;
+    text-align: center;
+    margin: 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .header-inner-content {
+    justify-content: space-between;
+  }
+
+  .header.scrolled .nav.open {
+    top: var(--header-height-scrolled);
   }
 }
 
 @media (max-width: 480px) {
-  /* Further adjustments for very small screens if necessary */
-  /* :root { --header-height-default: 5rem; --header-height-scrolled: 3.5rem; } */
-  /* (These are ideally defined in your main App.css :root media query) */
-
-  .header-inner-content {
-    padding: 0.8rem 4%;
+  .logo {
+    font-size: 1.5rem;
   }
 
-  .header.scrolled .header-inner-content {
-    padding: 0.3rem 4%;
+  .header.scrolled .logo {
+    font-size: 1.2rem;
+  }
+
+  .nav.open {
+    max-height: 400px;
   }
 }
