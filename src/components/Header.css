@@ -1,49 +1,55 @@
-/* --- Header Base --- */
+/* Root variables for consistent spacing/colors */
+:root {
+  --header-height: 4.5rem;
+  --header-bg: rgba(18, 18, 24, 0.85);
+  --header-text: #fff;
+  --accent-color: #00bfa6;
+}
+
+/* --- Header Container --- */
 .header {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 100;
-  background: rgba(18, 18, 24, 0.8);
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid var(--card-border-color);
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  transition: background-color 0.3s ease, box-shadow 0.3s ease, height 0.3s ease;
-  height: var(--header-height-default);
+  height: var(--header-height);
+  background: var(--header-bg);
+  color: var(--header-text);
+  z-index: 1000;
   display: flex;
   align-items: center;
-  padding: 0;
+  justify-content: space-between;
+  padding: 0 1.5rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  transition: background 0.3s ease, height 0.3s ease;
 }
 
+/* Inner content layout */
 .header-inner-content {
   display: flex;
-  justify-content: space-between;
   align-items: center;
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 5%;
 }
 
+/* Logo (optional) */
 .logo {
   font-size: 1.8rem;
-  font-weight: 700;
-  color: var(--primary-color);
-  transition: font-size 0.3s ease;
+  font-weight: bold;
+  color: var(--accent-color);
 }
 
-/* --- NAV LINKS --- */
+/* --- Navigation --- */
 .nav {
   display: flex;
   gap: 2rem;
 }
 
 .nav a {
-  font-size: 1rem;
-  font-weight: 400;
-  color: var(--primary-color);
+  color: var(--header-text);
   text-decoration: none;
+  font-size: 1rem;
   transition: color 0.3s ease;
 }
 
@@ -51,82 +57,41 @@
   color: var(--accent-color);
 }
 
-/* --- SCROLLED HEADER --- */
-.header.scrolled {
-  height: var(--header-height-scrolled);
-  box-shadow: 0 4px 15px var(--shadow-color);
-}
-
-.header.scrolled .logo {
-  font-size: 1.5rem;
-}
-
-.header.scrolled .nav a {
-  font-size: 0.9rem;
-}
-
-/* --- HAMBURGER BUTTON --- */
+/* --- Hamburger --- */
 .menu-toggle {
   display: none;
-  font-size: 2rem;
   background: none;
   border: none;
-  color: var(--primary-color);
+  font-size: 2rem;
+  color: var(--header-text);
   cursor: pointer;
-  z-index: 101; /* Above the nav */
+  margin-left: auto;
 }
 
-/* --- MOBILE STYLES --- */
+/* --- Mobile Styles --- */
 @media (max-width: 768px) {
+  .nav {
+    display: none;
+    position: absolute;
+    top: var(--header-height);
+    right: 0;
+    width: 100%;
+    background: var(--header-bg);
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 1.5rem 0;
+  }
+
+  .nav.open {
+    display: flex;
+  }
+
   .menu-toggle {
     display: block;
   }
 
-  .nav {
-    position: absolute;
-    top: var(--header-height-default);
-    left: 0;
-    width: 100%;
-    flex-direction: column;
-    align-items: center;
-    background-color: rgba(18, 18, 24, 0.95);
-    overflow: hidden;
-    max-height: 0;
-    transition: max-height 0.3s ease;
-  }
-
-  .nav.open {
-    max-height: 300px;
-    padding: 1rem 0;
-  }
-
-  .nav a {
-    width: 100%;
-    padding: 1rem 0;
-    text-align: center;
-    margin: 0;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-  }
-
-  .header-inner-content {
-    justify-content: space-between;
-  }
-
-  .header.scrolled .nav.open {
-    top: var(--header-height-scrolled);
-  }
-}
-
-@media (max-width: 480px) {
   .logo {
     font-size: 1.5rem;
-  }
-
-  .header.scrolled .logo {
-    font-size: 1.2rem;
-  }
-
-  .nav.open {
-    max-height: 400px;
   }
 }
