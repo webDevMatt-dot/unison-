@@ -8,12 +8,12 @@ const Services = () => {
       <h3 className="section-title">Our Core Expertise</h3>
       <div className="service-list">
         {/* AI & Machine Learning Card */}
-        <Link href="src/pages/AIML" passHref>
-          <a className="service-card">
+        <Link href="/src/pages/AIML" passHref>
+          <div className="service-card">
             <FaBrain className="service-icon" />
             <h4>AI & Machine Learning</h4>
             <p>Unlock intelligent automation and predictive insights.</p>
-          </a>
+          </div>
         </Link>
 
         {/* SAP Solutions Card */}
