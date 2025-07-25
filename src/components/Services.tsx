@@ -8,7 +8,7 @@ const Services = () => {
       <h3 className="section-title">Our Core Expertise</h3>
       <div className="service-list">
         {/* AI & Machine Learning Card */}
-        <Link href="pages/AIML" passHref>
+        <Link href="src/pages/AIML" passHref>
           <a className="service-card">
             <FaBrain className="service-icon" />
             <h4>AI & Machine Learning</h4>
@@ -17,7 +17,7 @@ const Services = () => {
         </Link>
 
         {/* SAP Solutions Card */}
-        <Link href="/pages/SAP" passHref>
+        <Link href="src/pages/SAP" passHref>
           <a className="service-card">
             <FaCogs className="service-icon" />
             <h4>SAP Solutions</h4>
@@ -26,7 +26,7 @@ const Services = () => {
         </Link>
 
         {/* Data Engineering Card */}
-        <Link href="pages/DataEng" passHref>
+        <Link href="src/pages/DataEng" passHref>
           <a className="service-card">
             <FaDatabase className="service-icon" />
             <h4>Data Engineering</h4>
@@ -35,7 +35,7 @@ const Services = () => {
         </Link>
 
         {/* Anti Virus Card */}
-        <Link href="pages/AntiVirus" passHref>
+        <Link href="src/pages/AntiVirus" passHref>
           <a className="service-card">
             <FaShieldAlt className="service-icon" />
             <h4>Anti Virus</h4>
